@@ -1,2 +1,0 @@
-Run on USPSdata_20_uni 
-mywork, random, kmeans_repeat = 1; 
