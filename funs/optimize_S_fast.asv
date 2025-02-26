@@ -1,0 +1,45 @@
+function [B,S_B] = optimize_S_fast(B)
+n = size(B, 2);
+array_1 = ones(n, 1);
+array_11T = ones(n, n);
+B_original=B;
+
+% 循环次数
+index = 100;
+S_B = zeros(1, index);
+
+for i = 1:index
+    % B_t = B;
+
+    B = EProjSimplex_matrix(B);
+    if isequal(B, B')
+        % 计算复杂度大约是 O(m)，其中 m 是非零元素的数量
+        continue
+    else
+
+    %     S_1 = norm(B - B_t , 'fro')^2;
+    % B_tplus1 = B;
+
+
+        B = sparse(B);
+        B = 0.5 * (B + B');
+        % O(m)
+
+        % S_2 = norm(B - B_tplus1 , 'fro')^2;
+        % 
+        % S_1-S_2
+
+    end
+
+    S_B(i) = norm(B - B_original , 'fro')^2;
+     if i > 1 && abs(S_B(i) - S_B(i - 1)) < 1e-4
+            S_B = S_B(1:i); % 裁剪多余的零值
+            break;
+        end
+
+end
+%
+%     figure;
+%     plot(1:index, S_B, 'r', 'LineWidth', 1);
+%     grid on;
+end
