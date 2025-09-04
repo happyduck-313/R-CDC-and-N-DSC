@@ -39,7 +39,7 @@ function [F, y_x, F_original] = work_Ratio(A, c, NUM, lamda)
         end
     end
         % Convert F to a format that indicates the active indexes
-    [~, F] = find(full(F) == 1);
+    [~, F] = max(F, [], 2);
 
     % [~, SSSS] = find(full(SSS) == 1);
 
