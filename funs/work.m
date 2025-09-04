@@ -50,7 +50,7 @@ for n = 1:size(F, 1)
     end
 
     % Convert F to a format that indicates the active indexes
-    [~, F] = find(full(F) == 1);
+    [~, F] = max(F, [], 2);
 
     %         fprintf('lambda=%0.6f \n',lambda);
     % fprintf('S-A^2=%0.6f \n',norm(S-A,'fro')^2);
