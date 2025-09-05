@@ -12,9 +12,10 @@ function [F, y_x, F_original] = work_Ratio(A, c, NUM, lamda)
     % F_comparison - Placeholder for comparison purposes
 
     F = zeros(size(A, 1), c);  % Initialize F with zeros
-    for n = 1:size(F, 1)
-        F(n, randi([1, size(F, 2)], 1, 1)) = 1;  % Assign random 1s in each row
-    end
+    % for n = 1:size(F, 1)
+    %     F(n, randi([1, size(F, 2)], 1, 1)) = 1;
+    % end
+    F = n2hi(A, c);
     F_original = F;
   
     y_x = zeros(1, NUM);  % Initialize objective function values
