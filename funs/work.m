@@ -17,9 +17,10 @@ function [F, y_x, F_original] = work(A, c, NUM, lambda)
     A = sparse(A); % Ensure A is in sparse format
     F = zeros(size(A, 1), c);  % Initialize F with zeros
 
-for n = 1:size(F, 1)
-        F(n, randi([1, size(F, 2)], 1, 1)) = 1;  % Assign random 1s in each row
-    end
+    % for n = 1:size(F, 1)
+    %     F(n, randi([1, size(F, 2)], 1, 1)) = 1;
+    % end
+    F = n2hi(A, c);
 
 
 
